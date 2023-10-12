@@ -6,10 +6,11 @@ all common attributes/methods for other classes
 from datetime import datetime
 import uuid
 
+
 class BaseModel:
     """
     The BaseModel class that defines all common methods
-    and attributes for other classes. 
+    and attributes for other classes.
     """
     def __init__(self):
         """
@@ -23,7 +24,8 @@ class BaseModel:
         """
         the __str__ method
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """
@@ -38,4 +40,3 @@ class BaseModel:
         obj_dict["created_at"] = self.created_at.isoformat()
         obj_dict["updated_at"] = self.updated_at.isoformat()
         return obj_dict
-    
