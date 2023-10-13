@@ -4,6 +4,7 @@ a class BaseModel that defines
 all common attributes/methods for other classes
 """
 from datetime import datetime
+import models
 import uuid
 
 
@@ -31,7 +32,8 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-
+            models.storage.new(self)
+            models.storage.save()
     def __str__(self):
         """
         the __str__ method
@@ -44,6 +46,7 @@ class BaseModel:
         """
         method that updates the public attribut update_at"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
