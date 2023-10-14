@@ -53,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
                 BaseModel_instance = eval(class_name)()
                 BaseModel_instance.save()
                 print(BaseModel_instance.id)
-            except:
+            except NameError:
                 print("** class doesn't exist **")
         else:
             print("** class name missing **")
@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
                         print(instance)
                     else:
                         print("** no instance found **")
-            except:
+            except NameError:
                 print("** class doesn't exist **")
 
     def help_show(self):
@@ -92,9 +92,11 @@ class HBNBCommand(cmd.Cmd):
         method that prints the string representation of
         an instance based on the class name and id
         """
-        print(
-            "prints the string representation of an instance based on the class name and id\n"
-            )
+        one = "prints the string representation of an "
+        two = "instance based on the class name and id"
+        info = one + two
+        print(info)
+        print()
 
     def do_all(self, arg):
         """method to print all string representation of all instances
@@ -116,13 +118,13 @@ class HBNBCommand(cmd.Cmd):
             else:
                 for key in all_obj.keys():
                     print(all_obj[key])
-        except:
+        except NameError:
             print("** class doesn't exist **")
 
     def help_all(self):
         """method to print to all representation of instances
         base or not on class"""
-        print("print all string representation of all instances base or not on class\n")
+        print("print all string representation of all instances\n")
 
 
 if __name__ == '__main__':
