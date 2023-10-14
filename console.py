@@ -140,7 +140,8 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     key = args[0] + "." + args[1]
                     all_obj = storage.all()
-                    del(all_obj[key])
+                    del (all_obj[key])
+
                 except FileNotFoundError:
                     print("** no instance found **")
         else:
