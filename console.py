@@ -6,6 +6,7 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     class HBNBCommand inheriting from cmd.Cmd
@@ -72,7 +73,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             class_name = word_list[0]
-            
             try:
                 if len(word_list) < 2:
                     print("** instance id missing **")
@@ -112,16 +112,17 @@ class HBNBCommand(cmd.Cmd):
                     if class_name == args[0]:
                         print(all_obj[key])
                 if args[0] not in class_name_list:
-                    print("** class doesn't exist **")                
+                    print("** class doesn't exist **")
             else:
                 for key in all_obj.keys():
                     print(all_obj[key])
         except:
             print("** class doesn't exist **")
-       
 
     def help_all(self):
-        pass
+        """method to print to all representation of instances
+        base or not on class"""
+        print("print all string representation of all instances base or not on class\n")
 
 
 if __name__ == '__main__':
