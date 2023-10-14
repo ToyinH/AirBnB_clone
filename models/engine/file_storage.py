@@ -5,6 +5,7 @@ Contains the FileStorage class
 from models.base_model import BaseModel
 import json
 
+
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
 
@@ -31,23 +32,6 @@ class FileStorage:
         with open(self.__file_path, "w", encoding="utf") as file:
             json.dump(json_objects, file)
 
-    #def reload(self):
-        """deserializes the JSON file to __objects"""
-        #try:
-            #with open(self.__file_path, 'r', encoding="utf") as file:
-                #loaded_objects = json.load(file)
-                #BaseModel(**loaded_objects)
-        #except FileNotFoundError:
-            #pass
-
-        #try:
-            #with open(self.__file_path, 'r', encoding="utf") as file:
-                #jo = json.load(file)
-            #for key in jo:
-                #self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        #except:
-            #pass
-
     def reload(self):
         try:
             with open(self.__file_path, 'r') as file:
@@ -55,5 +39,5 @@ class FileStorage:
                 for key, value in loaded_objects.items():
                     class_name, obj_id = key.split(".")
                     self.__objects[key] = eval(class_name)(**value)
-        except:
+        except FileNotFoundError:
             pass
