@@ -153,6 +153,39 @@ class HBNBCommand(cmd.Cmd):
         """
         print("deletes an instance based on the class name and id")
 
+    def do_update(self, arg):
+        """method to update instance"""
+        if not arg:
+            print("** class name missing **")
+        args = arg.split()
+        if args[0] != "BaseModel":
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print("** instance id missing **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        elif len(args) < 4:
+            print("** value missing **")
+        else:
+            class_name = args[0]
+            instance_id = args[1]
+            attribute_name = args[2]
+            new_value = args[3]
+
+            key = class_name + "." + instance_id
+            all_instances = storage.all()
+
+            if key in all_instances:
+                instance = all_instances[key]
+                setattr(instance, attribute_name, new_value)
+                instance.save()
+            else:
+                print("** no instance found **")
+
+    def help_update(self):
+        """method to update instance"""
+        print("update instance based on class and id")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
