@@ -8,6 +8,9 @@ import models
 import uuid
 
 
+time = "%Y-%m-%dT%H:%M:%S.%f"
+
+
 class BaseModel:
     """
     The BaseModel class that defines all common methods
