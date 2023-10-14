@@ -8,8 +8,6 @@ import models
 import uuid
 
 
-time = "%Y-%m-%dT%H:%M:%S.%f"
-
 
 class BaseModel:
     """
