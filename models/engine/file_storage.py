@@ -55,5 +55,5 @@ class FileStorage:
                 for key, value in loaded_objects.items():
                     class_name, obj_id = key.split(".")
                     self.__objects[key] = eval(class_name)(**value)
-        except FileNotFoundError:
+        except:
             pass
