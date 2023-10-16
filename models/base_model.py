@@ -8,6 +8,7 @@ import models
 import uuid
 
 
+
 class BaseModel:
     """
     The BaseModel class that defines all common methods
