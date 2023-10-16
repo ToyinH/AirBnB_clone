@@ -8,13 +8,11 @@ import models
 import uuid
 
 
-
 class BaseModel:
     """
     The BaseModel class that defines all common methods
     and attributes for other classes.
     """
-
     def __init__(self, *args, **kwargs):
         """
         class constructor for BaseModel
