@@ -138,9 +138,9 @@ class HBNBCommand(cmd.Cmd):
         """
         if arg:
             args = arg.split()
-            if args[0] != "BaseModel" and args[0] != "User":
-            # class_list = ["BaseModel", "User", "State", "City", "Amenity", "Review"]
-            # if args[0] not in class_list:            
+            # if args[0] != "BaseModel" and args[0] != "User":
+            class_list = ["BaseModel", "User", "State", "City", "Amenity", "Review"]
+            if args[0] not in class_list:            
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
@@ -166,9 +166,9 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         args = arg.split()
-        if args[0] != "BaseModel" and args[0] != "User":
-        # class_list = ["BaseModel", "User", "State", "City", "Amenity", "Review"]
-        # if args[0] not in class_list:
+        # if args[0] != "BaseModel" and args[0] != "User":
+        class_list = ["BaseModel", "User", "State", "City", "Amenity", "Review"]
+        if args[0] not in class_list:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
