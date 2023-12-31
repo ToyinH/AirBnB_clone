@@ -5,6 +5,11 @@ Contains the FileStorage class
 from models.base_model import BaseModel
 import json
 from models.user import User
+from models.user import State
+from models.user import City
+from models.user import Amenity
+from models.user import Place
+from models.user import Review
 
 
 class FileStorage:
